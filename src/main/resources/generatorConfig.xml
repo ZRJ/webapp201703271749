@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
     <!--导入属性配置 -->
-    <properties resource="jdbc.properties"></properties>
+    <properties resource="jdbc.properties"/>
 
     <!--指定特定数据库的jdbc驱动jar包的位置 -->
     <classPathEntry location="${driverLocation}"/>
@@ -43,7 +43,7 @@
             <property name="enableSubPackages" value="false"/>
 
             <!-- 建立的Model对象是否 不可改变  即生成的Model对象不会有 setter方法，只有构造方法 -->
-            <property name="immutable" value="true"/>
+            <property name="immutable" value="false"/>
 
             <!-- 给Model添加一个父类 -->
             <!--<property name="rootClass" value="com.foo.louis.Hello"/>-->
