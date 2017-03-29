@@ -1,11 +1,6 @@
 package me.zrj.test.webapp.dao;
 
 import me.zrj.test.webapp.model.User;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.ResultMap;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
 
 public interface UserMapper {
     /**
@@ -14,10 +9,6 @@ public interface UserMapper {
      *
      * @mbggenerated
      */
-    @Delete({
-        "delete from user_t",
-        "where id = #{id,jdbcType=INTEGER}"
-    })
     int deleteByPrimaryKey(Integer id);
 
     /**
@@ -26,12 +17,6 @@ public interface UserMapper {
      *
      * @mbggenerated
      */
-    @Insert({
-        "insert into user_t (id, user_name, ",
-        "password, age)",
-        "values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, ",
-        "#{password,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER})"
-    })
     int insert(User record);
 
     /**
@@ -48,13 +33,6 @@ public interface UserMapper {
      *
      * @mbggenerated
      */
-    @Select({
-        "select",
-        "id, user_name, password, age",
-        "from user_t",
-        "where id = #{id,jdbcType=INTEGER}"
-    })
-    @ResultMap("BaseResultMap")
     User selectByPrimaryKey(Integer id);
 
     /**
@@ -71,12 +49,5 @@ public interface UserMapper {
      *
      * @mbggenerated
      */
-    @Update({
-        "update user_t",
-        "set user_name = #{userName,jdbcType=VARCHAR},",
-          "password = #{password,jdbcType=VARCHAR},",
-          "age = #{age,jdbcType=INTEGER}",
-        "where id = #{id,jdbcType=INTEGER}"
-    })
     int updateByPrimaryKey(User record);
 }
