@@ -1,8 +1,8 @@
 package me.zrj.test.webapp.service.impl;
 
 import me.zrj.test.webapp.dao.UserMapper;
-import me.zrj.test.webapp.service.IUserService;
 import me.zrj.test.webapp.model.User;
+import me.zrj.test.webapp.service.IUserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

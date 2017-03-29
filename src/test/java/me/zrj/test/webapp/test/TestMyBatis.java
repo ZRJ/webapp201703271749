@@ -2,8 +2,8 @@ package me.zrj.test.webapp.test;
 
 import javax.annotation.Resource;
 
-import me.zrj.test.webapp.service.IUserService;
 import me.zrj.test.webapp.model.User;
+import me.zrj.test.webapp.service.IUserService;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;

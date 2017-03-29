@@ -1,11 +1,15 @@
 package me.zrj.test.webapp.dao;
 
 import me.zrj.test.webapp.model.User;
+import org.apache.ibatis.annotations.Arg;
+import org.apache.ibatis.annotations.ConstructorArgs;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.ResultMap;
+import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.UpdateProvider;
+import org.apache.ibatis.type.JdbcType;
 
 public interface UserMapper {
     /**
@@ -40,6 +44,7 @@ public interface UserMapper {
      *
      * @mbggenerated
      */
+    @InsertProvider(type=UserSqlProvider.class, method="insertSelective")
     int insertSelective(User record);
 
     /**
@@ -54,7 +59,12 @@ public interface UserMapper {
         "from user_t",
         "where id = #{id,jdbcType=INTEGER}"
     })
-    @ResultMap("BaseResultMap")
+    @ConstructorArgs({
+        @Arg(column="id", javaType=Integer.class, jdbcType=JdbcType.INTEGER, id=true),
+        @Arg(column="user_name", javaType=String.class, jdbcType=JdbcType.VARCHAR),
+        @Arg(column="password", javaType=String.class, jdbcType=JdbcType.VARCHAR),
+        @Arg(column="age", javaType=Integer.class, jdbcType=JdbcType.INTEGER)
+    })
     User selectByPrimaryKey(Integer id);
 
     /**
@@ -63,6 +73,7 @@ public interface UserMapper {
      *
      * @mbggenerated
      */
+    @UpdateProvider(type=UserSqlProvider.class, method="updateByPrimaryKeySelective")
     int updateByPrimaryKeySelective(User record);
 
     /**
