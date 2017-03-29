@@ -13,4 +13,5 @@ hs_err_pid*
 
 .idea/
 logs/
+target/
 webapp201703271749.iml
